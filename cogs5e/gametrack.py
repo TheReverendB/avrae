@@ -390,9 +390,9 @@ class GameTrack(commands.Cog):
 
         __Valid Arguments__
         *Note: These arguments do not support calculations.*
-        -dc <dc> - When cast, this spell always uses this DC.
-        -b <sab> - When cast, this spell always uses this spell attack bonus.
-        -mod <mod> - When cast, this spell always uses this as the value of its casting stat (usually for healing spells).
+        `-dc <dc>` - When cast, this spell always uses this DC.
+        `-b <sab>` - When cast, this spell always uses this spell attack bonus.
+        `-mod <mod>` - When cast, this spell always uses this as the value of its casting stat (usually for healing spells).
         """  # noqa: E501
         spell = await select_spell_full(ctx, spell_name)
         character: Character = await Character.from_ctx(ctx)
@@ -581,7 +581,7 @@ class GameTrack(commands.Cog):
         A counter can only be reset if it has a maximum value.
         Reset hierarchy: short < long < default < none
         __Valid Arguments__
-        -h - Hides the character summary output."""
+        `-h` - Hides the character summary output."""
         try:
             name = args[0]
         except IndexError:
