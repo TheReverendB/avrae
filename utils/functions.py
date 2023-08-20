@@ -535,3 +535,28 @@ def get_initials(name: str) -> str:
 
     # Multiple words, find initials
     return "".join(word[0] for word in split_name if word)
+
+
+def ordinal(value) -> str:
+    """Converts an integer or string to its ordinal as a string.
+
+    1 is "1st", "102" is "2nd" etc. Works for anything `int()`
+    will turn into an integer. Anything else will return the output
+    of str(value).
+
+    :param args: (int, str): Integer to convert.
+
+    :returns: str: Ordinal string.
+    """
+
+    try:
+        int(value)
+
+    except (TypeError, ValueError):
+        return str(value)
+    
+    value = int(value)
+    valueIndex = (value // 10 % 10 != 1) * min(value % 10, 4)
+    tag = ['th','st','nd','rd','th'][valueIndex]
+    
+    return f"{value}{tag}"
