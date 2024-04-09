@@ -410,11 +410,9 @@ class SheetManager(commands.Cog):
 
     @commands.group(aliases=["char"], invoke_without_command=True)
     async def character(self, ctx, *, name: str = None):
-        """If no character name is passed in, it will display the current character and information about the current channel, server and global characters if appropriate. Otherwise it switches the active Global character and unsets any channel or server-specific mappings that existed.
-
+        """change or view your active character
         __Optional Arguments__
-        `name` - The name of the character you want to switch to. If not passed in it will show active character
-            information. e.g. `!character "Character Name"`
+        `name` - The name of a character you want to use e.g. `!character "Character Name"`
         """
         if name is None:
             embed = await self._active_character_embed(ctx)
