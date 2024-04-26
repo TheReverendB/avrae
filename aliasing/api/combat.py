@@ -515,14 +515,14 @@ class SimpleCombatant(AliasStatBlock):
 
         return SimpleEffect(effect_obj)
 
-    def remove_effect(self, name: str):
+    def remove_effect(self, name: str, strict: bool = False):
         """
         Removes an effect from the combatant, fuzzy searching on name. If not found, does nothing.
 
         :param str name: The name of the effect to remove.
         """
         name = str(name)
-        effect = self._combatant.get_effect(name, strict=False)
+        effect = self._combatant.get_effect(name, strict)
         if effect:
             effect.remove()
             self._update_effects()
